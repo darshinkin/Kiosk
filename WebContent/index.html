@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta property="og:title" content="ДРУГ Голос"/>
+	<meta property="og:url" content="https://glupostey.net"/>
+	<meta property="og:image" content="https://glupostey.net/img/Group.png"/>
+	<meta property="og:image:secure_url" content="https://glupostey.net/img/Group.png"/>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui"/>
+	<script type="text/javascript" src="device.js"></script>
+	<meta charset="UTF-8">
+	<title>ДРУГ Голос</title>
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+	<div class="centered">
+		<a class="logo_install" id="logoSbgBtn">
+			<img src="img/Group.png" alt="Сбербанк без глупостей" class="voice">
+		</a>
+	</div>
+	<div class="screenshots">
+		<div class="screenshots_line">
+			<div class="screenshot_wrapper">
+				<div class="screenshot_text">
+					Делитесь тем, что<br/>нуждается в изменениях
+				</div>
+				<img src="img/screen1.png" class="screenshot_pic"></div>
+			<div class="screenshot_wrapper">
+				<div class="screenshot_text">Изучайте географию<br>глупостей</div>
+				<img src="img/screen2.png" class="screenshot_pic"></div>
+			<div class="screenshot_wrapper">
+				<div class="screenshot_text">Отмечайте<br/>лучшие решения</div>
+				<img src="img/screen3.png" class="screenshot_pic screen_3"></div>
+			<div class="screenshot_wrapper">
+				<div class="screenshot_text">Зарабатывайте<br/>баллы</div>
+				<img src="img/screen4.png" class="screenshot_pic"></div>
+		</div>
+	</div>
+	<div class="instructions">
+		<div class="instructions_text">
+			При запуске приложения<br/>появится окно, закройте его:
+		</div>
+		<div class="instructions_step" stepnumber="1">
+			<img src="img/dialog.png" alt="Ненадежный корпоративный разработчик">
+		</div>
+		<div class="instructions_text">
+			Заходите в настройки:
+		</div>
+		<div class="instructions_step category icon1" stepnumber="2">
+			<div class="icon">
+				<img src="img/icon1.png" alt="">
+			</div>
+			<div class="instructions_step_text">
+				Основные
+			</div>
+		</div>
+		<div class="instructions_step category" stepnumber="3">
+			<div class="instructions_step_text">
+				Профили и управление устройством
+			</div>
+		</div>
+		<div class="instructions_step category icon2" stepnumber="4">
+			<div class="icon">
+				<img src="img/icon2.png" alt="">
+			</div>
+			<div class="instructions_step_text">
+				Sberbank
+			</div>
+		</div>
+		<div class="instructions_step category final" stepnumber="5">
+			<div class="instructions_step_text">
+				Доверять &laquo;Sberbank&raquo;
+			</div>
+		</div>
+	</div>
+	<div class="centered">
+		<div class="text">
+			Только для iOS
+		</div>
+	</div>
+	<div class="bottom"></div>
+	<a id="downloadSbgBtn" class="enterBtn">УСТАНОВИТЬ</a>
+
+<script type="text/javascript">
+if (device.ios())
+	{
+		var baseUrl = "itms-services://?action=download-manifest&url=" + window.location.href + "file/sbg.plist";
+	}/* else if (device.android())
+		{
+		var baseUrl = window.location.href + "file/app-debug.apk";
+		} */
+	else
+	{
+		document.getElementById("downloadSbgBtn").setAttribute("onclick","alert('На данный момент поддерживаются устройства на базе iOS')");
+		document.getElementById("logoSbgBtn").setAttribute("onclick","alert('На данный момент поддерживаются устройства на базе iOS')");
+		var baseUrl ="javascript:;";
+	}
+document.getElementById("downloadSbgBtn").setAttribute("href",baseUrl);
+document.getElementById("logoSbgBtn").setAttribute("href",baseUrl);
+</script>
+
+
+</body>
+</html>
