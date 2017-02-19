@@ -10,10 +10,10 @@ public class VersionQueryResponce implements Serializable
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	public String version;
-	public boolean mandatory;
-	public List<String> releaseNotes;
-	public String status;
+	private String version;
+	private boolean mandatory;
+	private List<String> releaseNotes;
+	private String status;
 	
 	public String getVersion() {
 		return version;
