@@ -1,0 +1,12 @@
+.apt_generated/
+.classpath
+.factorypath
+.gitignore
+.idea/
+.project
+.settings/
+.tern-project
+AppKiosk.iml
+WebContent/WEB-INF/classes/
+WebContent/WEB-INF/lib/
+WebContent/img/.DS_Store
