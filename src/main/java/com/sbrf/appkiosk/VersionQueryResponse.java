@@ -3,7 +3,7 @@ package com.sbrf.appkiosk;
 import java.io.Serializable;
 import java.util.List;
 
-public class VersionQueryResponce implements Serializable
+public class VersionQueryResponse implements Serializable
 {
 	/**
 	 * 

@@ -46,7 +46,7 @@ public class AppService
 
 			br = new BufferedReader(new InputStreamReader( new FileInputStream(releaseNotesFile), "UTF8"));
 			currentVersion =  br.readLine();
-			VersionQueryResponce responce= new VersionQueryResponce();
+			VersionQueryResponse responce= new VersionQueryResponse();
 
 			boolean isMandatory=false;
 

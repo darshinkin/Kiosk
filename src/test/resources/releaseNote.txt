@@ -1,0 +1,5 @@
+78512!
+The id field is a unique identifier for the greeting,
+and content is the textual representation of the greeting.
+To model the greeting representation, you create a resource representation class.
+Provide a plain old java object with fields, constructors, and accessors for the id and content data:
