@@ -6,7 +6,8 @@
 .project
 .settings/
 .tern-project
-AppKiosk.iml
-WebContent/WEB-INF/classes/
-WebContent/WEB-INF/lib/
-WebContent/img/.DS_Store
+**/*.iml
+kioskapp/*.iml
+app/WebContent/WEB-INF/classes/
+app/WebContent/WEB-INF/lib/
+app/WebContent/img/.DS_Store

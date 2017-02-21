@@ -3,12 +3,15 @@ package com.sbrf.appkiosk.services;
 import com.sbrf.appkiosk.Settings;
 import com.sbrf.appkiosk.VersionQueryResponse;
 import com.sbrf.appkiosk.exceptions.AppException;
+import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
+import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 
 import java.io.File;
@@ -39,12 +42,12 @@ public class ApplicationServiceTest {
         List<String> releaseNotes = new ArrayList<>();
         File file = new File(ApplicationService.class.getResource("/releaseNote.txt").getFile());
         String currentVersion = applicationService.getCurrentVersion(file, releaseNotes);
-        assertEquals("78512!", currentVersion);
+        Assert.assertEquals("78512!", currentVersion);
         List<String> actualReleasNotes = Arrays.asList("The id field is a unique identifier for the greeting,",
                 "and content is the textual representation of the greeting.",
                 "To model the greeting representation, you create a resource representation class.",
                 "Provide a plain old java object with fields, constructors, and accessors for the id and content data:");
-        assertEquals(actualReleasNotes, releaseNotes);
+        Assert.assertEquals(actualReleasNotes, releaseNotes);
     }
 
     @Test
@@ -52,10 +55,10 @@ public class ApplicationServiceTest {
     public void testGetVersionQueryResponse() throws Exception {
         String os = "android";
         String fileName = ApplicationService.class.getResource("/releaseNote.txt").getFile();
-        whenNew(Settings.class).withNoArguments().thenReturn(mock(Settings.class));
+        PowerMockito.whenNew(Settings.class).withNoArguments().thenReturn(Mockito.mock(Settings.class));
         VersionQueryResponse response = applicationServiceMock.getVersionQueryResponse(os);
-        assertEquals("78512", response.getVersion());
-        assertTrue(response.isMandatory());
-        assertNull(response.getStatus());
+        Assert.assertEquals("78512", response.getVersion());
+        Assert.assertTrue(response.isMandatory());
+        Assert.assertNull(response.getStatus());
     }
 }
