@@ -12,7 +12,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-@Path("/rest")
+@Path("/appService2")
 @Produces(MediaType.APPLICATION_JSON+";charset=UTF-8")
 public class ApplicationResource {
 
@@ -23,7 +23,13 @@ public class ApplicationResource {
     @Path("/getVersion/{os}")
     public Response getVersion(@PathParam("os") String os) throws AppException {
         System.out.println("AppService.getVersion() " + os);
-        VersionQueryResponse versionQueryResponce = applicationService.getVersionQueryResponse(os);
+        VersionQueryResponse versionQueryResponce = null;
+        if (applicationService != null) {
+            versionQueryResponce = applicationService.getVersionQueryResponse(os);
+        } else {
+            System.out.println("ApplicationService injection is error");
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("ApplicationService injection is error").build();
+        }
         return Response.status(Response.Status.OK).entity(versionQueryResponce).build();
     }
 }

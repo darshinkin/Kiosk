@@ -13,11 +13,13 @@
     </modules>
 
     <properties>
+        <app.display.name>AppKoiskEAR</app.display.name>
+        <kiosk.context.root>AppKiosk</kiosk.context.root>
         <javaee-api.version>7.0</javaee-api.version>
         <jackson.version>2.6.3</jackson.version>
         <commons-io.version>2.4</commons-io.version>
         <gson.version>2.7</gson.version>
-        <jdk.version>1.8</jdk.version>
+        <jdk.version>1.7</jdk.version>
         <log4j.version>2.7</log4j.version>
         <commons-beanutils.version>1.9.2</commons-beanutils.version>
         <google.guava>18.0</google.guava>

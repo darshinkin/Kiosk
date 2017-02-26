@@ -14,14 +14,14 @@
 	</welcome-file-list>
 	
 	
-<!--  	<servlet>
+  	<servlet>
 		<description>
 		JAX-RS Tools Generated - Do not modify</description>
 		<servlet-name>JAX-RS Servlet</servlet-name>
 		<servlet-class>com.ibm.websphere.jaxrs.server.IBMRestServlet</servlet-class>
 		<init-param>
 			<param-name>javax.ws.rs.Application</param-name>
-			<param-value>com.sbrf.appkiosk.ServicesConfig</param-value>
+			<param-value>com.sbrf.appkiosk.JaxRsActivator</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 		<enabled>true</enabled>
@@ -31,7 +31,7 @@
 	<servlet-mapping>
 		<servlet-name>JAX-RS Servlet</servlet-name>
 		<url-pattern>/rest/*</url-pattern>
-	</servlet-mapping>  -->
+	</servlet-mapping>
 	
 	
 	<servlet>

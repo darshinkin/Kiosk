@@ -21,11 +21,12 @@ public class Settings {
     public static final String sbgPlistFileName = "/sbg.plist";
     public static final String sbgIpaFileName = "/sbg.ipa";
 
-    private static Properties properties;
+    private static Properties properties = new Properties();
 
 
     public Settings() throws AppException {
-        InputStream inputStream = Settings.class.getResourceAsStream(CONFIG);
+        ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+        InputStream inputStream = classLoader.getResourceAsStream(CONFIG);
         if (inputStream == null) {
             LOGGER.error(String.format("File %s has not been loaded.", CONFIG));
             throw new AppException(500, 500, String.format("File %s has not been loaded.",

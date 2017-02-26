@@ -1,6 +1,7 @@
 package com.sbrf.appkiosk;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class VersionQueryResponse implements Serializable
@@ -12,7 +13,7 @@ public class VersionQueryResponse implements Serializable
 	
 	private String version;
 	private boolean mandatory;
-	private List<String> releaseNotes;
+	private List<String> releaseNotes = new ArrayList<>();
 	private String status;
 	
 	public String getVersion() {

@@ -19,6 +19,8 @@ package com.sbrf.appkiosk;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * A class extending {@link Application} and annotated with @ApplicationPath is the Java EE 7 "no XML" approach to activating
@@ -30,5 +32,10 @@ import javax.ws.rs.core.Application;
  */
 @ApplicationPath("/rest")
 public class JaxRsActivator extends Application {
-    /* class body intentionally left blank */
+    public Set<Class<?>> getClasses() {
+        Set<Class<?>> classes = new HashSet<Class<?>>();
+        classes.add(com.sbrf.appkiosk.resource.ApplicationResource.class);
+        classes.add(com.sbrf.appkiosk.AppService.class);
+        return classes;
+    }
 }

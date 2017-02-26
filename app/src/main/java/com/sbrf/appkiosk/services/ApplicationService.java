@@ -18,6 +18,10 @@ public class ApplicationService {
 
     private static final String EXPLANATION_POINT = "!";
 
+
+    public ApplicationService() {
+    }
+
     public VersionQueryResponse getVersionQueryResponse(String os) throws AppException {
         String fileName = settings.getFileName(os);
         if (fileName == null) {

@@ -10,14 +10,19 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>app</artifactId>
+    <artifactId>AppKiosk</artifactId>
     <packaging>war</packaging>
+
+    <properties>
+        <server.name>sbt-oapou-007.sigma.sbrf.ru</server.name>
+    </properties>
 
     <dependencies>
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-api</artifactId>
             <version>${javaee-api.version}</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>commons-io</groupId>
@@ -106,14 +111,76 @@
                 <configuration>
                     <webResources>
                         <resource>
-                            <directory>WebContent</directory>
+                            <directory>src/main/webapp</directory>
                             <filtering>true</filtering>
                         </resource>
                     </webResources>
-                    <webappDirectory>${project.build.directory}/${project.artifactId}</webappDirectory>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>com.sun.jersey.contribs</groupId>
+                <artifactId>maven-wadl-plugin</artifactId>
+                <version>1.19.3</version>
+                <executions>
+                    <execution>
+                        <id>generate</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <phase>${javadoc-phase}</phase>
+                    </execution>
+                </executions>
+                <configuration>
+                    <wadlFile>${project.build.outputDirectory}/application.wadl
+                    </wadlFile>
+                    <formatWadlFile>true</formatWadlFile>
+                    <baseUri>http://${server.name}:8080/${kiosk.context.root}</baseUri>
+                    <packagesResourceConfig>
+                        <param>com.sbrf.appkiosk</param>
+                    </packagesResourceConfig>
+                    <wadlGenerators>
+                        <wadlGeneratorDescription>
+                            <className>com.sun.jersey.server.wadl.generators.WadlGeneratorApplicationDoc
+                            </className>
+                            <properties>
+                                <property>
+                                    <name>applicationDocsFile</name>
+                                    <value>${basedir}/src/main/doc/application-doc.xml</value>
+                                </property>
+                            </properties>
+                        </wadlGeneratorDescription>
+                        <wadlGeneratorDescription>
+                            <className>com.sun.jersey.server.wadl.generators.WadlGeneratorGrammarsSupport
+                            </className>
+                            <properties>
+                                <property>
+                                    <name>grammarsFile</name>
+                                    <value>${basedir}/src/main/doc/application-grammars.xml</value>
+                                </property>
+                            </properties>
+                        </wadlGeneratorDescription>
+                    </wadlGenerators>
+                </configuration>
+                <dependencies>
+                </dependencies>
+            </plugin>
         </plugins>
+
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>com.sun.jersey.contribs</groupId>
+                    <artifactId>maven-wadl-plugin</artifactId>
+                    <dependencies>
+                        <dependency>
+                            <groupId>xerces</groupId>
+                            <artifactId>xercesImpl</artifactId>
+                            <version>2.11.0</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
+            </plugins>
+        </pluginManagement>
     </build>
 
 </project>
