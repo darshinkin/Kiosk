@@ -51,7 +51,7 @@ public class ApplicationService {
 
     String getCurrentVersion(final File releaseNotesFile, List<String> releaseNotes) throws AppException {
         String currentVersion = "";
-        try (BufferedReader br = new BufferedReader(new FileReader(releaseNotesFile))) {
+        try (BufferedReader br = new BufferedReader(new InputStreamReader( new FileInputStream(releaseNotesFile), "UTF8"))) {
             currentVersion = br.readLine();
             while (true){
                 String f = br.readLine();

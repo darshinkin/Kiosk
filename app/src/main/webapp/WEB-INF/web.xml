@@ -14,7 +14,7 @@
 	</welcome-file-list>
 	
 	
-  	<servlet>
+  	<!--<servlet>
 		<description>
 		JAX-RS Tools Generated - Do not modify</description>
 		<servlet-name>JAX-RS Servlet</servlet-name>
@@ -31,7 +31,7 @@
 	<servlet-mapping>
 		<servlet-name>JAX-RS Servlet</servlet-name>
 		<url-pattern>/rest/*</url-pattern>
-	</servlet-mapping>
+	</servlet-mapping>-->
 	
 	
 	<servlet>

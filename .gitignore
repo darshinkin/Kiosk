@@ -8,6 +8,4 @@
 .tern-project
 **/*.iml
 kioskapp/*.iml
-app/WebContent/WEB-INF/classes/
-app/WebContent/WEB-INF/lib/
-app/WebContent/img/.DS_Store
+**/target

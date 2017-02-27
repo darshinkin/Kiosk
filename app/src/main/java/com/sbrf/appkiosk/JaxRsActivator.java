@@ -32,10 +32,10 @@ import java.util.Set;
  */
 @ApplicationPath("/rest")
 public class JaxRsActivator extends Application {
-    public Set<Class<?>> getClasses() {
+    /*public Set<Class<?>> getClasses() {
         Set<Class<?>> classes = new HashSet<Class<?>>();
         classes.add(com.sbrf.appkiosk.resource.ApplicationResource.class);
         classes.add(com.sbrf.appkiosk.AppService.class);
         return classes;
-    }
+    }*/
 }
