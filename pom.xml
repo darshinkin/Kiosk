@@ -14,7 +14,7 @@
 
     <properties>
         <app.display.name>AppKoiskEAR</app.display.name>
-        <kiosk.context.root>AppKiosk</kiosk.context.root>
+        <kiosk.context.root>/</kiosk.context.root>
         <javaee-api.version>7.0</javaee-api.version>
         <jackson.version>2.6.3</jackson.version>
         <commons-io.version>2.4</commons-io.version>
