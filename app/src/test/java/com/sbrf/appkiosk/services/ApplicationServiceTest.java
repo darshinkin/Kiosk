@@ -7,12 +7,10 @@ import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.powermock.api.mockito.PowerMockito;
-import org.powermock.core.classloader.annotations.PrepareForTest;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -23,7 +21,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 import static org.powermock.api.mockito.PowerMockito.whenNew;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -56,7 +53,7 @@ public class ApplicationServiceTest {
         String os = "android";
         String fileName = ApplicationService.class.getResource("/releaseNote.txt").getFile();
         PowerMockito.whenNew(Settings.class).withNoArguments().thenReturn(Mockito.mock(Settings.class));
-        VersionQueryResponse response = applicationServiceMock.getVersionQueryResponse(os);
+        VersionQueryResponse response = applicationServiceMock.getVersionQueryResponse(os, null);
         Assert.assertEquals("78512", response.getVersion());
         Assert.assertTrue(response.isMandatory());
         Assert.assertNull(response.getStatus());

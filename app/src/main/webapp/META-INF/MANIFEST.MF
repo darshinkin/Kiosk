@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Built-By: SBT-Arshinkin-DA
+Built-By: sbt-arshinkin-da
 Created-By: Apache Maven 3.3.9
 Build-Jdk: 1.8.0_45
 

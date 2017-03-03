@@ -9,3 +9,4 @@
 **/*.iml
 kioskapp/*.iml
 **/target
+**/backup

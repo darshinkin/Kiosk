@@ -36,6 +36,7 @@ public class RedirectionFilter implements Filter{
         if(LOGGER.isDebugEnabled()) {
             LOGGER.debug(message);
         }
+        System.out.println(message);
 
 
         if (request.getScheme().equals("http") || !Strings.isNullOrEmpty(request.getQueryString())) {
@@ -43,6 +44,7 @@ public class RedirectionFilter implements Filter{
             if (LOGGER.isDebugEnabled()) {
                 LOGGER.info("!!!!!!!!!! New URL: " + url);
             }
+            System.out.println(url);
             response.sendRedirect(url);
         } else {
             chain.doFilter(request, response);
