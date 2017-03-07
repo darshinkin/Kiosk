@@ -40,7 +40,7 @@ public class RedirectionFilter implements Filter{
 
 
         if (request.getScheme().equals("http") || !Strings.isNullOrEmpty(request.getQueryString())) {
-            String url = "https://" + request.getServerName() + ":9443";
+            String url = "https://" + request.getServerName() + ":443";
             if (LOGGER.isDebugEnabled()) {
                 LOGGER.info("!!!!!!!!!! New URL: " + url);
             }

@@ -13,6 +13,6 @@ import java.util.Set;
  * Resources are served relative to the servlet path specified in the {@link ApplicationPath} annotation.
  * </p>
  */
-@ApplicationPath("/rest")
+@ApplicationPath("/")
 public class JaxRsActivator extends Application {
 }
