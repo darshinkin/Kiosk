@@ -5,18 +5,18 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.sbrf.kiosk</groupId>
-        <artifactId>kiosk</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <groupId>ru.sbrf.friend.mobile</groupId>
+        <artifactId>friend-kiosk-server</artifactId>
+        <version>0.1.0</version>
     </parent>
 
-    <artifactId>AppKoiskEAR</artifactId>
+    <artifactId>friend-kiosk-server-ear</artifactId>
     <packaging>ear</packaging>
 
     <dependencies>
         <dependency>
-            <groupId>com.sbrf.kiosk</groupId>
-            <artifactId>AppKiosk</artifactId>
+            <groupId>ru.sbrf.friend.mobile</groupId>
+            <artifactId>friend-kiosk-server-app</artifactId>
             <version>${project.version}</version>
             <type>war</type>
         </dependency>
@@ -32,8 +32,8 @@
                     <earName>${app.display.name}</earName>
                     <modules>
                         <webModule>
-                            <groupId>com.sbrf.kiosk</groupId>
-                            <artifactId>AppKiosk</artifactId>
+                            <groupId>ru.sbrf.friend.mobile</groupId>
+                            <artifactId>friend-kiosk-server-app</artifactId>
                             <contextRoot>${kiosk.context.root}</contextRoot>
                         </webModule>
                     </modules>

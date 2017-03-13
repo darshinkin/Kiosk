@@ -2,9 +2,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.sbrf.kiosk</groupId>
-    <artifactId>kiosk</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <parent>
+        <groupId>ru.sbrf.friend</groupId>
+        <artifactId>friend-parent</artifactId>
+        <version>1.5.0</version>
+    </parent>
+
+    <groupId>ru.sbrf.friend.mobile</groupId>
+    <artifactId>friend-kiosk-server</artifactId>
+    <version>0.1.0</version>
     <name>Kiosk</name>
     <packaging>pom</packaging>
 
