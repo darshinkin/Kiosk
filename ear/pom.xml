@@ -7,7 +7,7 @@
     <parent>
         <groupId>ru.sbrf.friend.mobile</groupId>
         <artifactId>friend-kiosk-server</artifactId>
-        <version>0.1.1</version>
+        <version>0.1.2</version>
     </parent>
 
     <artifactId>friend-kiosk-server-ear</artifactId>
