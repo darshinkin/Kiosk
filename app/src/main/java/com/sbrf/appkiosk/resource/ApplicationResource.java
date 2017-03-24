@@ -64,10 +64,24 @@ public class ApplicationResource {
     @GET
     @Path("/appService/{ver}")
     @Produces(MediaType.APPLICATION_JSON+";charset=UTF-8")
-    public String getVersion(@PathParam ("ver") String version) throws HTTPException, AppException {
+    public String getVersion(@PathParam ("ver") String version) throws AppException {
         String response = applicationService.getVersionOld(version);
         return response;
     }
 
+    @GET
+    @Path("/file/FriendMobile.plist")
+    @Produces(MediaType.APPLICATION_OCTET_STREAM)
+    public Response getFileFriendMobilePlist(@Context UriInfo uriDetails) throws AppException, IOException {
+        InputStream inputStream = applicationService.getFileFriendMobilePlist(uriDetails);
+        return Response.ok(inputStream, MediaType.APPLICATION_OCTET_STREAM_TYPE).build();
+    }
 
+    @GET
+    @Path("/file/FriendMobile.plist")
+    @Produces(MediaType.APPLICATION_OCTET_STREAM)
+    public Response getFileSbgMobilePlist(@Context UriInfo uriDetails) throws AppException, IOException {
+        InputStream inputStream = applicationService.getFileSbgMobilePlist(uriDetails);
+        return Response.ok(inputStream, MediaType.APPLICATION_OCTET_STREAM_TYPE).build();
+    }
 }

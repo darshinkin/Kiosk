@@ -153,4 +153,24 @@ public class ApplicationService {
         Gson gson = new Gson();
         return gson.toJson(response);
     }
+
+    public InputStream getFileFriendMobilePlist(UriInfo uriDetails) throws AppException, IOException {
+        String fileName = Settings.getFriendPlistFileName();
+        File file = getFile(fileName);
+        String plist = FileUtils.readFileToString(file, "UTF-8");
+        System.out.println(String.format("--------- URI's requeste. AbsolutePath: %s, BaseUri: %s, RequestUri: %s",
+                uriDetails.getAbsolutePath().toString(), uriDetails.getBaseUri().toString(), uriDetails.getRequestUri().toString()));
+        String modifedPlist=plist.replace(IPA_FILE_STUB, Settings.getFriendIpaFileName());
+        return new ByteArrayInputStream(modifedPlist.getBytes(StandardCharsets.UTF_8));
+    }
+
+    public InputStream getFileSbgMobilePlist(UriInfo uriDetails) throws AppException, IOException {
+        String fileName = Settings.getSbgPlistFileName();
+        File file = getFile(fileName);
+        String plist = FileUtils.readFileToString(file, "UTF-8");
+        System.out.println(String.format("--------- URI's requeste. AbsolutePath: %s, BaseUri: %s, RequestUri: %s",
+                uriDetails.getAbsolutePath().toString(), uriDetails.getBaseUri().toString(), uriDetails.getRequestUri().toString()));
+        String modifedPlist=plist.replace(IPA_FILE_STUB, Settings.getSbgIpaFileName());
+        return new ByteArrayInputStream(modifedPlist.getBytes(StandardCharsets.UTF_8));
+    }
 }
