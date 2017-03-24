@@ -1,5 +1,6 @@
 package com.sbrf.appkiosk.resource;
 
+import com.google.gson.Gson;
 import com.sbrf.appkiosk.VersionQueryResponse;
 import com.sbrf.appkiosk.exceptions.AppException;
 import com.sbrf.appkiosk.services.ApplicationService;
@@ -10,9 +11,9 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
+import javax.xml.ws.http.HTTPException;
+import java.io.*;
+import java.util.ArrayList;
 
 @Path("/")
 @Produces(MediaType.APPLICATION_JSON+";charset=UTF-8")
@@ -58,4 +59,15 @@ public class ApplicationResource {
                 header("Content-Length", String.valueOf(file.length()))
                 .build();
     }
+
+
+    @GET
+    @Path("/appService/{ver}")
+    @Produces(MediaType.APPLICATION_JSON+";charset=UTF-8")
+    public String getVersion(@PathParam ("ver") String version) throws HTTPException, AppException {
+        String response = applicationService.getVersionOld(version);
+        return response;
+    }
+
+
 }

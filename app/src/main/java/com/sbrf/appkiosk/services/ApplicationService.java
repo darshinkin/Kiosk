@@ -1,5 +1,6 @@
 package com.sbrf.appkiosk.services;
 
+import com.google.gson.Gson;
 import com.sbrf.appkiosk.Settings;
 import com.sbrf.appkiosk.VersionQueryResponse;
 import com.sbrf.appkiosk.exceptions.AppException;
@@ -10,8 +11,6 @@ import org.apache.logging.log4j.Logger;
 import javax.inject.Inject;
 import javax.ws.rs.core.UriInfo;
 import java.io.*;
-import java.net.URI;
-import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 
@@ -116,5 +115,42 @@ public class ApplicationService {
                     String.format("File name %s is not exist. Method: ApplicationService.getAndroidFile", fileName), null);
         }
         return file;
+    }
+
+    //todo depricated method
+    public String getVersionOld(String version) throws AppException {
+        System.out.println("AppService.getVersion()" + version);
+
+        String fileName = Settings.getReleaseForOldVersion();
+        if (fileName == null) {
+            throw new AppException(500, 500, String.format("For ios was not found path of the release file in the settings %s.", Settings.CONFIG_OLD),
+                    "fileName is null", null);
+        }
+
+        VersionQueryResponse response = new VersionQueryResponse();
+        String currentVersion = null;
+        List<String> releaseNotes = response.getReleaseNotes();
+        File releaseNotesFile = new File(fileName);
+        if (releaseNotesFile.exists()) {
+            currentVersion = getCurrentVersion(releaseNotesFile, releaseNotes);
+        } else {
+            throw new AppException(500, 500, String.format("File with name %s is not exist.", fileName),
+                    "File is not exist", null);
+        }
+        if (currentVersion == null || currentVersion.isEmpty()) {
+            throw new AppException(500, 500, String.format("Current version is null of empty. Filename: %s, OS: ios ", fileName),
+                    "Current version is null of empty.", null);
+        }
+        if (version.equalsIgnoreCase(currentVersion)) {
+            response.setStatus("ok");
+        } else {
+            response.setMandatory(currentVersion.contains(EXPLANATION_POINT));
+            response.setVersion(currentVersion.replace(EXPLANATION_POINT, ""));
+            response.setStatus("update");
+            response.setReleaseNotes(releaseNotes);
+        }
+
+        Gson gson = new Gson();
+        return gson.toJson(response);
     }
 }
