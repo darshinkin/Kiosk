@@ -4,4 +4,12 @@
          version="3.0">
     <display-name>AppKiosk</display-name>
 
+    <servlet>
+        <servlet-name>fileServlet</servlet-name>
+        <servlet-class>com.sbrf.appkiosk.FileServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>fileServlet</servlet-name>
+        <url-pattern>/file/*</url-pattern>
+    </servlet-mapping>
 </web-app>

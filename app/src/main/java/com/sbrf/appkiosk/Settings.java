@@ -22,6 +22,20 @@ public class Settings {
     public static final String PLIST = "plist";
     public static final String RELEASE_OLD = "release_old";
 
+
+    private static final java.lang.String DEPLOY_PATH = "deployPath";
+    private static final java.lang.String FRIEND_PLIST_FILE_NAME = "friendPlistFileName";
+    private static final java.lang.String FRIEND_IPA_FILE_NAME = "friendIpaFileName";
+    private static final java.lang.String SBG_PLIST_FILE_NAME = "sbgPlistFileName";
+    private static final java.lang.String SBG_IPA_FILE_NAME = "sbgIpaFileName";
+    public static final String deployPath = "/FriendKiosk";
+    public static final String releaseFileName = "/FriendKiosk/release.txt";
+    public static final String friendPlistFileName = "/FriendMobile.plist";
+    public static final String friendIpaFileName = "/FriendMobile.ipa";
+    public static final String apkFileName = "/friend.apk";
+    public static final String sbgPlistFileName = "/sbg.plist";
+    public static final String sbgIpaFileName = "/sbg.ipa";
+
     private static Properties propertiesNew = new Properties();
     private static Properties propertiesOld = new Properties();
 
@@ -63,5 +77,25 @@ public class Settings {
 
     public static String getReleaseForOldVersion() {
         return propertiesOld.getProperty(RELEASE_OLD);
+    }
+
+    public static String getDeployPath() {
+        return propertiesOld.getProperty(DEPLOY_PATH);
+    }
+
+    public static String getFriendPlistFileName() {
+        return propertiesOld.getProperty(FRIEND_PLIST_FILE_NAME);
+    }
+
+    public static String getFriendIpaFileName() {
+        return propertiesOld.getProperty(FRIEND_IPA_FILE_NAME);
+    }
+
+    public static String getSbgPlistFileName() {
+        return propertiesOld.getProperty(SBG_PLIST_FILE_NAME);
+    }
+
+    public static String getSbgIpaFileName() {
+        return propertiesOld.getProperty(SBG_IPA_FILE_NAME);
     }
 }
